@@ -1,8 +1,10 @@
+//IMPORTAR MODULOS
 var express = require('express');
 var faker = require('faker');
 var app = express();
 var _ = require('lodash');
 
+//GENERA USUARIO CON DATA DE FAKER
 var generarUsuario = function (){
 	var randomId = faker.finance.account();
 	var randomName = faker.name.findName();
@@ -20,6 +22,7 @@ var generarUsuario = function (){
 	}
 }
 
+//RUTA API /POSTS
 app.get('/posts', function(req,res){
 	var cantidad = _.random(5,10)
 	var usuarios = _.times(cantidad, generarUsuario)
